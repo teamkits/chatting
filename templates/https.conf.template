@@ -1,0 +1,32 @@
+server {
+  listen ${HTTPS_PORT} ssl;
+  listen [::]:${HTTPS_PORT} ssl;
+
+  listen 8448 ssl default_server;
+  listen [::]:8448 ssl default_server;
+
+  server_name chat.aibaby.online;
+
+  ssl_certificate /etc/certificate/chat.aibaby.online.pem;
+  ssl_certificate_key /etc/certificate/chat.aibaby.online.key;
+
+  location ~* ^(\/_matrix|\/_synapse\/client) {
+    proxy_pass ${HOMESERVER_URL};
+    proxy_set_header X-Forwarded-For $remote_addr;
+
+    # Nginx by default only allows file uploads up to 1M in size
+    # Increase client_max_body_size to match max_upload_size defined in homeserver.yaml
+    client_max_body_size 50M;
+  }
+
+  location /.well-known/matrix {
+    root /usr/share/nginx/html;
+    default_type application/json;
+    add_header Access-Control-Allow-Origin  *;
+  }
+
+  location / {
+    proxy_pass ${HOMESERVER_URL};
+    proxy_set_header X-Forwarded-For $remote_addr;
+  }
+}

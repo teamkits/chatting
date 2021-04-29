@@ -1,0 +1,7 @@
+server {
+  listen ${HTTP_PORT};
+  listen [::]:${HTTP_PORT};
+  server_name _;
+
+  return 301 https://$host$request_uri;
+}
