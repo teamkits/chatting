@@ -16,6 +16,31 @@
   docker-compose homeserver generate
 ```
 
+### 
+为爱发电：
+
+
+### 视频会议解决方案
+* https://jitsi.org/projects/
+* [jitsi-meet](https://itsfoss.com/jitsi-meet)
+  + https://jitsi.github.io/handbook/docs/intro/
+* 在线教学会议：[bigbluebutton](https://github.com/bigbluebutton/bigbluebutton)
+* [GNU jami](https://jami.net)
+
+### 站点客服
+* 在线即时聊天：https://crisp.chat/zh/pricing
+
+### 在线音乐服务器
+* navidrome：https://github.com/navidrome/navidrome
+
+### 社交聊天工具软件
+* Discord
+  + https://www.ccvalue.cn/article/1387471.html
+
+### [ejabberd]()
+* https://docs.ejabberd.im
+
+
 ### [Matrix](https://matrix.org)
 * Codes: https://github.com/matrix-org
 * Specification: https://matrix.org/docs/spec
